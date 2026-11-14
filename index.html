@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfolio of Ochigbo Brian Sule, Business Intelligence Analyst and Power BI Developer: four decision-ready Power BI reports with live links, screenshots and headline findings.">
+<meta name="description" content="Portfolio of Ochigbo Brian Sule, Business Intelligence Analyst and Power BI Developer: three Power BI reports on recruitment, AI customer support and retail, with findings and live links.">
 <meta property="og:title" content="Brian Sule Portfolio">
-<meta property="og:description" content="Portfolio of Ochigbo Brian Sule, Business Intelligence Analyst and Power BI Developer: four decision-ready Power BI reports with live links, screenshots and headline findings.">
+<meta property="og:description" content="Portfolio of Ochigbo Brian Sule, Business Intelligence Analyst and Power BI Developer: three Power BI reports on recruitment, AI customer support and retail, with findings and live links.">
 <meta property="og:type" content="website">
 <style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
 <title>Brian Sule Portfolio</title>
@@ -14,11 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a report-style portfolio. Sticky page-tab header, hero with the shared report spine, four project "pages" each carrying its dashboard's own hue, then toolkit and contact. */
+/* Layout: a report-style portfolio. Sticky page-tab header, hero with the shared report spine, a three-card overview, then three case studies (question, pages, findings, evidence, how to explore), toolkit and contact. */
 :root{
   --bg:#F3F4F1; --surface:#FFFFFF; --surface-2:#EAECE7; --line:#D9DCD4;
   --fg:#12161C; --mute:#566170; --accent:#F2C811; --accent-ink:#7A5B00; --on-accent:#12161C;
-  --c-sun:#8B5E3C; --c-ai:#4A5563; --c-wal:#4B3F9E; --c-b2b:#1F8479;
+  --c-sun:#8B5E3C; --c-sup:#0B4FA3; --c-rec:#2459FD;
   --shadow:0 1px 2px rgba(18,22,28,.06),0 12px 32px -16px rgba(18,22,28,.22);
   --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
   --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
@@ -27,12 +27,12 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0E1217; --surface:#161B22; --surface-2:#1D242D; --line:#27303B;
   --fg:#E9ECEF; --mute:#9BA6B3; --accent:#F2C811; --accent-ink:#F2C811; --on-accent:#12161C;
-  --c-sun:#CE9A6C; --c-ai:#B4BDC9; --c-wal:#9A8FEA; --c-b2b:#4CC2B3;
+  --c-sun:#CE9A6C; --c-sup:#6AAEF5; --c-rec:#86A3FF;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E1217; --surface:#161B22; --surface-2:#1D242D; --line:#27303B;
   --fg:#E9ECEF; --mute:#9BA6B3; --accent:#F2C811; --accent-ink:#F2C811; --on-accent:#12161C;
-  --c-sun:#CE9A6C; --c-ai:#B4BDC9; --c-wal:#9A8FEA; --c-b2b:#4CC2B3;
+  --c-sun:#CE9A6C; --c-sup:#6AAEF5; --c-rec:#86A3FF;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -98,29 +98,43 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sec-h h2{font-size:clamp(30px,4.4vw,48px);font-weight:800}
 .sec-h p{color:var(--mute);max-width:46ch}
 
-/* project pages */
-.project{--pa:var(--c-sun);padding-block:clamp(44px,6vw,76px);border-top:1px solid var(--line)}
-.project.sun{--pa:var(--c-sun)} .project.ai{--pa:var(--c-ai)} .project.wal{--pa:var(--c-wal)} .project.b2b{--pa:var(--c-b2b)}
-.project:nth-of-type(even){background:linear-gradient(var(--surface-2),var(--surface-2)) no-repeat;background-size:100% 100%;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+/* overview cards */
+.glance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.g-card{--pa:var(--c-rec);display:flex;flex-direction:column;gap:10px;min-width:0;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.g-card.sup{--pa:var(--c-sup)} .g-card.sun{--pa:var(--c-sun)}
+.g-card:hover{transform:translateY(-4px);border-color:var(--pa);box-shadow:var(--shadow)}
+.g-k{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pa);display:flex;align-items:center;gap:8px}
+.g-k::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pa)}
+.g-t{font:700 21px/1.15 var(--f-display);letter-spacing:-.015em}
+.g-q{color:var(--mute);font-size:15px}
+.g-r{font-size:15px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.g-go{font:500 13px var(--f-mono);color:var(--pa)}
+
+/* project case studies */
+.project{--pa:var(--c-rec);padding-block:clamp(44px,6vw,76px);border-top:1px solid var(--line)}
+.project.rec{--pa:var(--c-rec)} .project.sup{--pa:var(--c-sup)} .project.sun{--pa:var(--c-sun)}
+.project.alt{background:var(--surface-2);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.p-top{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px}
 .eyebrow{font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;align-items:center;gap:8px;letter-spacing:.02em}
 .eyebrow .dot{width:10px;height:10px;border-radius:50%;background:var(--pa)}
 .eyebrow .sep{color:var(--line)}
+.new{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:3px 9px;border-radius:999px}
 .p-head h2{font-size:clamp(30px,5vw,56px);font-weight:800;margin-top:12px;max-width:20ch}
-.p-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);margin-top:32px;align-items:start}
-.brief{font-size:17px;max-width:58ch}
-.steps{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.q{margin-top:22px;max-width:62ch;font:500 clamp(18px,2.1vw,23px)/1.4 var(--f-display);letter-spacing:-.01em}
+.q-l{display:block;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pa);margin-bottom:6px}
+.p-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:22px}
+.p-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);margin-top:34px;align-items:start}
+.brief{font-size:16.5px;max-width:58ch}
+.steps{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
 .steps li{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px 14px;transition:transform .25s,border-color .25s}
-.steps li:hover{transform:translateY(-3px);border-color:var(--pa)}
+.steps li:hover{transform:translateX(4px);border-color:var(--pa)}
 .steps b{display:block;font:700 15px var(--f-display);color:var(--pa)}
-.steps span{display:block;font-size:13px;color:var(--mute);line-height:1.4;margin-top:2px}
-.mini{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500;margin-top:28px}
-.finds{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-.finds li{position:relative;padding-left:22px;font-size:15px}
-.finds li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:2px;background:var(--pa)}
-.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 24px;padding:0}
-.chips li{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--mute);background:var(--surface)}
-.chips li:first-child{border-color:var(--pa);color:var(--pa)}
-.fine{font-size:12px;color:var(--mute);margin-top:10px}
+.steps span{display:block;font-size:13.5px;color:var(--mute);line-height:1.45;margin-top:2px}
+.mini{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.p-copy .mini + .brief,.p-copy .mini{margin-top:0}
+.p-copy .brief{margin-top:10px}
+.p-copy .mini:not(:first-child){margin-top:26px}
+.fine{font-size:12px;color:var(--mute)}
 
 .viewer{min-width:0}
 .frame{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
@@ -132,7 +146,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .shot{display:block;position:relative;width:100%;padding:0;border:0;background:var(--surface-2);cursor:zoom-in;line-height:0}
 .shot img{display:block;width:100%;height:auto;transition:opacity .28s ease,transform .6s ease}
 .shot.swap img{opacity:0;transform:scale(1.015)}
-.shot .zoom{position:absolute;right:12px;bottom:12px;font:500 11px var(--f-mono);background:var(--fg);color:var(--bg);padding:5px 9px;border-radius:6px;opacity:0;transform:translateY(6px);transition:all .25s}
+.shot .zoom{position:absolute;right:12px;bottom:12px;font:500 11px var(--f-mono);line-height:1.4;background:var(--fg);color:var(--bg);padding:5px 9px;border-radius:6px;opacity:0;transform:translateY(6px);transition:all .25s}
 .shot:hover .zoom,.shot:focus-visible .zoom{opacity:.92;transform:none}
 .cap{font-size:14px;color:var(--mute);margin-top:14px;min-height:3em}
 .cap b{color:var(--fg);font-weight:500;font-size:13px}
@@ -153,12 +167,58 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tile .lab{font-size:12px;margin-top:12px;color:var(--fg);line-height:1.35}
 .tile .note{font-size:12px;color:var(--mute);margin-top:4px;line-height:1.35}
 
+/* findings and evidence */
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(24px,4vw,48px);margin-top:44px;align-items:start}
+.d-left,.d-right{min-width:0}
+.finds{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+.finds li{position:relative;padding-left:24px;font-size:15.5px}
+.finds li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--pa)}
+.callout{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.callout p{margin-top:8px;font-size:15.5px}
+.d-right{display:grid;gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.panel-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-bottom:14px}
+.panel-h h3{font-size:18px;letter-spacing:-.01em}
+.panel-h span{font:400 12px var(--f-mono);color:var(--mute)}
+.panel-n{font-size:12.5px;color:var(--mute);margin-top:14px;line-height:1.5}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.bars li{display:grid;grid-template-columns:minmax(0,11.5em) minmax(0,1fr) 4.4em;gap:4px 12px;align-items:center}
+.b-l{font-size:14px;line-height:1.25;min-width:0}
+.b-l small{display:block;font:400 11px var(--f-mono);color:var(--mute);margin-top:2px}
+.b-t{height:10px;border-radius:6px;background:var(--surface-2);overflow:hidden;min-width:0}
+.b-t i{display:block;height:100%;width:var(--w);border-radius:6px;background:color-mix(in srgb,var(--pa) 52%,var(--surface));transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.bars li.first .b-t i{background:var(--pa)}
+.bars b{font:500 13px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:340px}
+.cmp th,.cmp td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cmp th:first-child,.cmp td:first-child{text-align:left;white-space:normal}
+.cmp thead th{font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cmp tbody th{font-weight:400}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp .hl{background:color-mix(in srgb,var(--pa) 11%,transparent);color:var(--fg);font-weight:600}
+.cmp thead th.hl{color:var(--pa)}
+
+/* how to explore */
+.explore{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.explore h3{font-size:22px}
+.explore .mini{font-size:12px}
+.how{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px;counter-reset:h}
+.how li{counter-increment:h;display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;font-size:15.5px}
+.how li::before{content:counter(h);width:28px;height:28px;border-radius:50%;border:1.5px solid var(--pa);color:var(--pa);display:grid;place-items:center;font:500 12px var(--f-mono)}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px;padding:0}
+.chips li{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--mute);background:var(--surface)}
+.chips li:first-child{border-color:var(--pa);color:var(--pa)}
+.ex-r .fine{margin-top:10px}
+
 /* toolkit */
 .kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
 .kit div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .25s}
 .kit div:hover{transform:translateY(-4px)}
 .kit h3{font-size:19px}
 .kit p{color:var(--mute);font-size:14px;margin-top:8px}
+.tools{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.tools li{font:400 13px var(--f-mono);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px}
 
 /* contact */
 .contact{border-top:1px solid var(--line);padding-block:clamp(48px,8vw,96px)}
@@ -190,21 +250,21 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
 .hero .wrap>div:first-child>*:nth-child(5){animation-delay:.32s}
 .hero .wrap>div:first-child>*:nth-child(6){animation-delay:.4s}
 .spine{animation:rise .9s .25s cubic-bezier(.2,.7,.2,1) both}
-.project .tile .num{transition:color .3s}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
 @media (max-width:960px){
-  .hero .wrap,.p-grid{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap,.p-grid,.detail,.explore{grid-template-columns:minmax(0,1fr)}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .kit{grid-template-columns:minmax(0,1fr)}
+  .kit,.glance{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:560px){
-  .steps{grid-template-columns:minmax(0,1fr)}
   .nav a{padding:7px 9px}
   .brand span{display:none}
   .row .k{width:100%}
+  .bars li{grid-template-columns:minmax(0,1fr) auto}
+  .bars .b-t{grid-column:1 / -1;grid-row:2}
 }
 </style>
 
@@ -215,10 +275,9 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
   <a class="brand" href="#top" aria-label="Brian Sule, back to top"><i></i><span>Brian Sule</span></a>
   <nav class="nav" aria-label="Sections">
     <a href="#work" data-s="work">Work</a>
+    <a href="#recruitment" data-s="recruitment">Recruitment</a>
+    <a href="#support" data-s="support">AI Support</a>
     <a href="#sunrise" data-s="sunrise">Sunrise</a>
-    <a href="#workforce" data-s="workforce">AI Workforce</a>
-    <a href="#wallet" data-s="wallet">Wallet Risk</a>
-    <a href="#b2b" data-s="b2b">B2B Sales</a>
     <a href="#contact" data-s="contact">Contact</a>
   </nav>
 </div><div class="prog" id="prog"></div></div>
@@ -229,23 +288,23 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
     <p class="kicker">Business Intelligence Analyst</p>
     <h1>Business data, turned into <em>decisions.</em></h1>
     <p class="role">Ochigbo Brian Sule · Business Intelligence Analyst and Power BI Developer</p>
-    <p class="lead">I build Power BI reports that answer the questions leaders actually ask: what is happening, where it comes from, and what to do next. Below are four reports, each with its brief, approach and headline findings.</p>
+    <p class="lead">I build Power BI reports that answer the questions leaders actually ask: what is happening, where it comes from, and what to do next. Below are three reports. Each one shows the business question, how it was built, the findings and how to open the live version.</p>
     <div class="cta">
-      <a class="btn primary" href="#work">See the four reports <span aria-hidden="true">↓</span></a>
+      <a class="btn primary" href="#work">See the three reports <span aria-hidden="true">↓</span></a>
       <a class="btn" href="#contact">Get in touch</a>
     </div>
     <div class="stats">
-      <div><b data-count="4">4</b><span>end-to-end reports</span></div>
-      <div><b data-count="19">19</b><span>report views shown</span></div>
-      <div><b data-count="4">4</b><span>industries covered</span></div>
+      <div><b data-count="3">3</b><span>end-to-end reports</span></div>
+      <div><b data-count="11">11</b><span>report pages shown</span></div>
+      <div><b data-count="3">3</b><span>business areas</span></div>
     </div>
   </div>
   <aside class="spine" aria-label="How every report is built">
     <h2>The spine of every report</h2>
-    <p class="sub">Same path, four different businesses</p>
+    <p class="sub">Same path, three different businesses</p>
     <ol id="spine">
       <li class="on"><span class="n">1</span><div><b>Performance</b><span>Establish where the business stands, against last year and against target.</span></div></li>
-      <li><span class="n">2</span><div><b>Drivers</b><span>Find which products, markets, customers or skills are behind the result.</span></div></li>
+      <li><span class="n">2</span><div><b>Drivers</b><span>Find which channels, routes, regions or segments sit behind the result.</span></div></li>
       <li><span class="n">3</span><div><b>Evidence</b><span>Back each pattern with the numbers, without claiming more than the data shows.</span></div></li>
       <li><span class="n">4</span><div><b>Action</b><span>Rank what needs attention and recommend a next step.</span></div></li>
     </ol>
@@ -253,37 +312,267 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
 </div></section>
 
 <div id="work"></div>
-<section class="sec" style="padding-bottom:0"><div class="wrap">
-  <div class="sec-h"><h2>Four reports</h2><p>Pick a page thumbnail to switch views, or click the large image to enlarge it.</p></div>
+<section class="sec" style="padding-bottom:clamp(28px,4vw,44px)"><div class="wrap">
+  <div class="sec-h"><h2>Three reports, newest first</h2><p>Each one starts from a business question and ends with a recommendation. Open a case to see the pages, the findings and how to use the live report.</p></div>
+  <div class="glance">
+<a class="g-card rec" href="#recruitment"><span class="g-k">Talent acquisition</span><b class="g-t">Recruitment Channel Performance Analytics</b><span class="g-q">Which hiring channels give the best hires for the money?</span><span class="g-r">Employee referrals lead with 98/100 and beat the average on all six KPIs.</span><span class="g-go">Read the case <span aria-hidden="true">→</span></span></a>
+<a class="g-card sup" href="#support"><span class="g-k">Customer support</span><b class="g-t">AI Customer Support Analytics</b><span class="g-q">Where does AI resolve tickets best, and when should a human step in?</span><span class="g-r">AI-only handling resolves 96.31% of account lockouts first time at €1.11 a ticket.</span><span class="g-go">Read the case <span aria-hidden="true">→</span></span></a>
+<a class="g-card sun" href="#sunrise"><span class="g-k">Retail</span><b class="g-t">Sunrise Coffee Chain Analytics</b><span class="g-q">Where should a 60-store coffee chain expand, and is loyalty worth funding?</span><span class="g-r">London tops revenue but earns the lowest margin (7.38%). Loyalty returns £17.21 per £1.</span><span class="g-go">Read the case <span aria-hidden="true">→</span></span></a>
+</div>
 </div></section>
 
+<section class="project rec" id="recruitment" aria-labelledby="recruitment-h">
+<div class="wrap">
+<header class="p-head"><div class="p-top">
+<p class="eyebrow"><span class="dot"></span>Project 1 <span class="sep">/</span> Talent acquisition · 4.05K hires analysed · 2024–2026</p><span class="new">Most recent</span></div>
+<h2 id="recruitment-h">Recruitment Channel Performance Analytics</h2>
+<p class="q"><span class="q-l">The business question</span>Which recruitment channels deliver suitable hires at a reasonable acquisition cost, and which keep providing value once retention and employee success are considered?</p>
+<div class="p-cta"><span class="btn ghost" aria-disabled="true">Live report link coming soon</span><span class="fine">Browse every page below in the meantime.</span></div>
+</header>
+<div class="p-grid"><div class="p-copy">
+<h3 class="mini">About the report</h3>
+<p class="brief">An interactive Power BI report that follows hiring from application to retained employee. It combines six recruitment KPIs (conversion rate, cost per hire, recruiter hours per hire, time to fill, retention and successful hire rate) and ranks every channel with a weighted score that executives can re-weight to match their own priorities.</p>
+<h3 class="mini">What each page answers</h3><ol class="steps">
+<li><b>Recruitment Activity</b><span>How many applicants become hires, and where they drop out</span></li>
+<li><b>Cost and Time Investment</b><span>What each channel costs in money, recruiter hours and days</span></li>
+<li><b>Quality and Outcomes</b><span>Who is still employed and successful after 90 and 180 days</span></li>
+<li><b>Strategic Channel Evaluation</b><span>A weighted score and a recommended action for every channel</span></li>
+</ol></div>
+<div class="viewer" data-viewer="recruitment">
+<div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">Recruitment Channel Performance Analytics</span></div>
+<button class="shot" type="button" aria-label="Enlarge screenshot"><img src="rec-1.webp" alt="Recruitment Channel Performance Analytics report page: Recruitment Activity" width="1600" height="898" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
+<p class="cap" aria-live="polite"><b>Recruitment Activity.</b> Applicant funnel from 141.27K applicants to 4.05K hires, with trend, channel and department views.</p>
+<div class="tabs" role="tablist" aria-label="Report pages">
+<button type="button" role="tab" aria-selected="true" data-img="rec-1.webp" data-label="Recruitment Activity" data-cap="Applicant funnel from 141.27K applicants to 4.05K hires, with trend, channel and department views." data-alt="Recruitment Channel Performance Analytics report page: Recruitment Activity"><img src="rec-1.webp" alt="" width="1600" height="898" loading="lazy" decoding="async"><span>Recruitment Activity</span></button>
+<button type="button" role="tab" aria-selected="false" data-img="rec-2.webp" data-label="Cost and Time Investment" data-cap="Total cost, cost per hire, wasted spend and time to fill by channel, with a cost against recruiter hours view." data-alt="Recruitment Channel Performance Analytics report page: Cost and Time Investment"><img src="rec-2.webp" alt="" width="1600" height="898" loading="lazy" decoding="async"><span>Cost and Time Investment</span></button>
+<button type="button" role="tab" aria-selected="false" data-img="rec-3.webp" data-label="Quality and Outcomes" data-cap="90-day success and attrition, 180-day retention and success, and retention against hiring volume." data-alt="Recruitment Channel Performance Analytics report page: Quality and Outcomes"><img src="rec-3.webp" alt="" width="1600" height="898" loading="lazy" decoding="async"><span>Quality and Outcomes</span></button>
+<button type="button" role="tab" aria-selected="false" data-img="rec-4.webp" data-label="Strategic Channel Evaluation" data-cap="Ranked channels with adjustable KPI weights and a recommended action for each." data-alt="Recruitment Channel Performance Analytics report page: Strategic Channel Evaluation"><img src="rec-4.webp" alt="" width="1600" height="898" loading="lazy" decoding="async"><span>Strategic Channel Evaluation</span></button>
+</div></div></div>
+<div class="tiles">
+<div class="tile"><div class="num" data-to="98" data-dec="0" data-pre="" data-suf="/100">98/100</div><div class="lab">Referral weighted score</div><div class="note">Next best is direct sourcing at 74</div></div>
+<div class="tile"><div class="num" data-to="10.75" data-dec="2" data-pre="" data-suf="%">10.75%</div><div class="lab">Referral conversion rate</div><div class="note">vs 2.87% across all channels</div></div>
+<div class="tile"><div class="num" data-to="1348" data-dec="0" data-pre="€" data-suf="">€1,348</div><div class="lab">Referral cost per hire</div><div class="note">vs €2,367 average; agency €11,339</div></div>
+<div class="tile"><div class="num" data-to="41" data-dec="0" data-pre="" data-suf=" days">41 days</div><div class="lab">Referral time to fill</div><div class="note">vs 56 days average</div></div>
+</div>
+<div class="detail"><div class="d-left"><h3 class="mini">Key findings</h3><ul class="finds">
+<li>Employee referrals rank first with a weighted score of 98/100, against 74/100 for the next best channel, direct sourcing.</li>
+<li>Referrals beat the overall average on all six KPIs, from conversion (10.75% vs 2.87%) to 180-day retention (89.6% vs 79.5%).</li>
+<li>Only 2.87% of applicants become hires. The biggest drop-off is 75.3% at qualification, while offer acceptance is strong at 81.63%.</li>
+<li>Agency hires cost €11,339 each, nearly five times the €2,367 average, and agencies take 59.17% of total spend. €640.85K of spend (6.69%) went to campaigns that produced no hires.</li>
+<li>Direct sourcing is a strong quality-focused alternative, careers sites are the lowest-cost option at €735 per hire, and job boards are the leading source of hiring volume.</li>
+<li>Social media brings 41.38% of applicants but scores lowest at 34/100, with only 62.23% of hires retained at 180 days.</li>
+</ul>
+<div class="callout"><h3 class="mini">Business implications</h3><p>Established a performance-based framework for choosing recruitment channels. Decision makers can prioritise employee referrals and pick alternative channels to suit a specific goal: cost control, candidate volume or hire quality.</p></div></div>
+<div class="d-right">
+<div class="panel"><div class="panel-h">
+<h3>Weighted channel score</h3><span>out of 100</span></div>
+<ul class="bars">
+<li class="first"><span class="b-l">Employee referrals<small>Prioritise</small></span><span class="b-t"><i style="--w:98.0%"></i></span><b>98</b></li>
+<li><span class="b-l">Direct sourcing<small>Expand selectively</small></span><span class="b-t"><i style="--w:74.0%"></i></span><b>74</b></li>
+<li><span class="b-l">Careers site<small>Expand selectively</small></span><span class="b-t"><i style="--w:69.0%"></i></span><b>69</b></li>
+<li><span class="b-l">Job boards<small>Maintain</small></span><span class="b-t"><i style="--w:58.0%"></i></span><b>58</b></li>
+<li><span class="b-l">Agency<small>Maintain, review allocation</small></span><span class="b-t"><i style="--w:53.0%"></i></span><b>53</b></li>
+<li><span class="b-l">Social media<small>Optimise</small></span><span class="b-t"><i style="--w:34.0%"></i></span><b>34</b></li>
+</ul>
+<p class="panel-n">Default weights: cost per hire 30, retention 20, conversion 15, success rate 15, recruiter hours 10, time to fill 10. Executives can change every weight in the report.</p>
+</div>
+<div class="panel"><div class="panel-h">
+<h3>Employee referrals vs overall average</h3><span>six KPIs</span></div>
+<div class="tbl"><table class="cmp"><thead><tr>
+<th scope="col">KPI</th>
+<th scope="col" class="hl">Referrals</th>
+<th scope="col">Overall average</th>
+</tr></thead><tbody>
+<tr>
+<th scope="row">Conversion rate</th>
+<td class="hl">10.75%</td>
+<td>2.87%</td>
+</tr>
+<tr>
+<th scope="row">Cost per hire</th>
+<td class="hl">€1,348</td>
+<td>€2,367</td>
+</tr>
+<tr>
+<th scope="row">Recruiter hours per hire</th>
+<td class="hl">13</td>
+<td>20</td>
+</tr>
+<tr>
+<th scope="row">Time to fill</th>
+<td class="hl">41 days</td>
+<td>56 days</td>
+</tr>
+<tr>
+<th scope="row">Retention rate (180 days)</th>
+<td class="hl">89.6%</td>
+<td>79.5%</td>
+</tr>
+<tr>
+<th scope="row">Successful hire rate</th>
+<td class="hl">91.34%</td>
+<td>82.18%</td>
+</tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="explore"><div class="ex-l"><h3>How to explore the live report</h3><ol class="how">
+<li>Use the left menu to move between Recruitments, Investment, Quality and Evaluation.</li>
+<li>Click a button in the metric strip, such as Total Applicants or Cost Per Hire, to change what the charts show.</li>
+<li>On Evaluation, change the six weight dropdowns to match your hiring priorities and watch the channel ranking update.</li>
+<li>Open Methodology to see how the score is calculated, or use the chat icon to ask the report a question.</li>
+</ol></div><div class="ex-r"><h3 class="mini">Report features</h3><ul class="chips" aria-label="Report features"><li>Power BI</li>
+<li>Weighted scoring model</li>
+<li>What-if weight controls</li>
+<li>Insight agent</li>
+<li>Methodology page</li>
+<li>ZoomCharts drill-down</li>
+</ul>
+<span class="btn ghost" aria-disabled="true">Live report link coming soon</span>
+<p class="fine">Built for the Recruitment Channel Value data challenge on a sample dataset.</p>
+</div></div>
+</div></section>
+<section class="project sup alt" id="support" aria-labelledby="support-h">
+<div class="wrap">
+<header class="p-head"><div class="p-top">
+<p class="eyebrow"><span class="dot"></span>Project 2 <span class="sep">/</span> Customer support · 12,000 tickets · 2025–2026</p></div>
+<h2 id="support-h">AI Customer Support Analytics</h2>
+<p class="q"><span class="q-l">The business question</span>How can support leaders see where AI delivers the most operational value, when a human is needed, and how routing decisions change the customer experience?</p>
+<div class="p-cta"><a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiY2Y2NGZhMzgtZDBkNy00ZWNlLWE0NzgtMTNmZTUxMzkzMDk2IiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a><span class="fine">Opens in a new tab. No sign-in needed.</span></div>
+</header>
+<div class="p-grid"><div class="p-copy">
+<h3 class="mini">About the report</h3>
+<p class="brief">A three-page Power BI report that compares three ways of resolving a ticket: AI only, AI handing over to a human, and human only. Each route is measured on six metrics: initial resolution rate, seven-day repeat rate, SLA achievement, cost per ticket, resolution time and customer satisfaction. The final page turns the comparison into a recommended route for every issue type.</p>
+<h3 class="mini">What each page answers</h3><ol class="steps">
+<li><b>Demand and Customer Experience</b><span>Ticket volume, waiting times and satisfaction by channel, customer tier and handoff</span></li>
+<li><b>Support Model Efficiency</b><span>Resolution, repeat, SLA and cost for each support route and each issue</span></li>
+<li><b>Issue Routing Recommendations</b><span>The recommended route, the evidence and the estimated saving for each issue</span></li>
+</ol></div>
+<div class="viewer" data-viewer="support">
+<div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">AI Customer Support Analytics</span></div>
+<button class="shot" type="button" aria-label="Enlarge screenshot"><img src="sup-1.webp" alt="AI Customer Support Analytics report page: Demand and Customer Experience" width="1600" height="903" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
+<p class="cap" aria-live="polite"><b>Demand and Customer Experience.</b> Tickets, escalations, response and queue times, and satisfaction against resolution hours by customer tier.</p>
+<div class="tabs" role="tablist" aria-label="Report pages">
+<button type="button" role="tab" aria-selected="true" data-img="sup-1.webp" data-label="Demand and Customer Experience" data-cap="Tickets, escalations, response and queue times, and satisfaction against resolution hours by customer tier." data-alt="AI Customer Support Analytics report page: Demand and Customer Experience"><img src="sup-1.webp" alt="" width="1600" height="903" loading="lazy" decoding="async"><span>Demand and Customer Experience</span></button>
+<button type="button" role="tab" aria-selected="false" data-img="sup-2.webp" data-label="Support Model Efficiency" data-cap="First-time resolution, repeat rate, SLA and cost by support route, with an issue-level heat map." data-alt="AI Customer Support Analytics report page: Support Model Efficiency"><img src="sup-2.webp" alt="" width="1600" height="903" loading="lazy" decoding="async"><span>Support Model Efficiency</span></button>
+<button type="button" role="tab" aria-selected="false" data-img="sup-3.webp" data-label="Issue Routing Recommendations" data-cap="Pick an issue to compare AI only, AI to human and human only, with the verdict and estimated saving." data-alt="AI Customer Support Analytics report page: Issue Routing Recommendations"><img src="sup-3.webp" alt="" width="1600" height="903" loading="lazy" decoding="async"><span>Issue Routing Recommendations</span></button>
+</div></div></div>
+<div class="tiles">
+<div class="tile"><div class="num" data-to="12.00" data-dec="2" data-pre="" data-suf="K">12.00K</div><div class="lab">Tickets analysed</div><div class="note">28.80% escalated; 4.05/5 satisfaction</div></div>
+<div class="tile"><div class="num" data-to="95.01" data-dec="2" data-pre="" data-suf="%">95.01%</div><div class="lab">Resolved first time</div><div class="note">87.15% met their SLA</div></div>
+<div class="tile"><div class="num" data-to="1.11" data-dec="2" data-pre="€" data-suf="">€1.11</div><div class="lab">AI-only cost per ticket</div><div class="note">Account lockouts; human only is €9.95</div></div>
+<div class="tile"><div class="num" data-to="3016" data-dec="0" data-pre="€" data-suf="">€3,016</div><div class="lab">Estimated saving</div><div class="note">Routing account lockouts to AI first</div></div>
+</div>
+<div class="detail"><div class="d-left"><h3 class="mini">Key findings</h3><ul class="finds">
+<li>AI only is the strongest operational approach across most issue categories in the dataset.</li>
+<li>For account lockouts, AI only resolves 96.31% of tickets first time, with a 9.20% seven-day repeat rate, 100% SLA achievement, €1.11 per ticket, 0.05 hours to resolve and 4.30/5 satisfaction.</li>
+<li>AI to human is the weakest route. It records the lowest satisfaction on the demand page, and for account lockouts it scores 3.55, below the 4.0 satisfaction gate, so it is not recommended.</li>
+<li>Billing disputes are the hardest issue: 35.10% repeat rate, 24.59 hours to resolve, only 49.08% of tickets within SLA and €39.85 per ticket. Integration errors cost the most at €48.78.</li>
+<li>Overall, 95.01% of 12,000 tickets were resolved first time, total support cost was €162.72K (€13.56 per ticket) and average resolution took 6.04 hours.</li>
+</ul>
+<div class="callout"><h3 class="mini">Business implications</h3><p>Developed issue-specific routing recommendations that help support leaders balance efficiency, service quality and customer experience. They show where AI-only handling adds value and where another support route deserves consideration.</p></div></div>
+<div class="d-right">
+<div class="panel"><div class="panel-h">
+<h3>Account lockouts: three routes compared</h3><span>recommended route highlighted</span></div>
+<div class="tbl"><table class="cmp"><thead><tr>
+<th scope="col">Metric</th>
+<th scope="col" class="hl">AI only</th>
+<th scope="col">AI to human</th>
+<th scope="col">Human only</th>
+</tr></thead><tbody>
+<tr>
+<th scope="row">Tickets</th>
+<td class="hl">271</td>
+<td>123</td>
+<td>180</td>
+</tr>
+<tr>
+<th scope="row">Initial resolved</th>
+<td class="hl">96.31%</td>
+<td>90.24%</td>
+<td>96.11%</td>
+</tr>
+<tr>
+<th scope="row">Repeat within 7 days</th>
+<td class="hl">9.20%</td>
+<td>26.13%</td>
+<td>19.08%</td>
+</tr>
+<tr>
+<th scope="row">SLA met</th>
+<td class="hl">100.00%</td>
+<td>95.12%</td>
+<td>70.56%</td>
+</tr>
+<tr>
+<th scope="row">Cost per ticket</th>
+<td class="hl">€1.11</td>
+<td>€12.67</td>
+<td>€9.95</td>
+</tr>
+<tr>
+<th scope="row">Resolution time</th>
+<td class="hl">0.05 h</td>
+<td>3.63 h</td>
+<td>10.04 h</td>
+</tr>
+<tr>
+<th scope="row">Satisfaction (of 5)</th>
+<td class="hl">4.30</td>
+<td>3.55</td>
+<td>4.08</td>
+</tr>
+</tbody></table></div>
+<p class="panel-n">A route must reach an average satisfaction of 4.0 to be considered. AI to human falls below it here.</p>
+</div>
+<div class="panel"><div class="panel-h">
+<h3>Cost per ticket by issue</h3><span>€, eight costliest issues</span></div>
+<ul class="bars">
+<li class="first"><span class="b-l">Integration error</span><span class="b-t"><i style="--w:100.0%"></i></span><b>€48.78</b></li>
+<li><span class="b-l">Billing dispute</span><span class="b-t"><i style="--w:81.7%"></i></span><b>€39.85</b></li>
+<li><span class="b-l">Service outage</span><span class="b-t"><i style="--w:49.5%"></i></span><b>€24.15</b></li>
+<li><span class="b-l">Missing parcel</span><span class="b-t"><i style="--w:45.2%"></i></span><b>€22.07</b></li>
+<li><span class="b-l">Cancellation</span><span class="b-t"><i style="--w:41.1%"></i></span><b>€20.05</b></li>
+<li><span class="b-l">Identity verification</span><span class="b-t"><i style="--w:36.4%"></i></span><b>€17.76</b></li>
+<li><span class="b-l">Refund eligibility</span><span class="b-t"><i style="--w:35.6%"></i></span><b>€17.38</b></li>
+<li><span class="b-l">Delivery delay</span><span class="b-t"><i style="--w:22.5%"></i></span><b>€10.98</b></li>
+</ul>
+<p class="panel-n">The cheapest issues are password reset (€2.05) and order tracking (€2.45).</p>
+</div>
+</div></div>
+<div class="explore"><div class="ex-l"><h3>How to explore the live report</h3><ol class="how">
+<li>Choose 2025, 2026 or both with the year buttons at the top right.</li>
+<li>On Demand and Efficiency, use the metric buttons above the trend chart to change what the charts and breakdowns show.</li>
+<li>On Recommendations, pick any of the 15 issues in the list to see its three routes side by side and the recommended path.</li>
+<li>Open Methodology to see how routes are scored, or use the chat icon to ask the report a question.</li>
+</ol></div><div class="ex-r"><h3 class="mini">Report features</h3><ul class="chips" aria-label="Report features"><li>Power BI</li>
+<li>Routing recommendations</li>
+<li>Satisfaction gate at 4.0</li>
+<li>Estimated cost saving</li>
+<li>Methodology page</li>
+<li>Insight agent</li>
+</ul>
+<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiY2Y2NGZhMzgtZDBkNy00ZWNlLWE0NzgtMTNmZTUxMzkzMDk2IiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
+<p class="fine">Opens the interactive report in a new tab. Built for a data challenge on a sample dataset.</p>
+</div></div>
+</div></section>
 <section class="project sun" id="sunrise" aria-labelledby="sunrise-h">
 <div class="wrap">
-<header class="p-head"><p class="eyebrow"><span class="dot"></span>Project 1 <span class="sep">/</span> UK retail · 60 stores · 2023–2024</p>
-<h2 id="sunrise-h">Sunrise Coffee Chain Analytics</h2></header>
-<div class="p-grid">
-<div class="p-copy">
-<p class="brief">A Power BI report evaluating the commercial performance of a 60-store UK coffee chain. It covers store finances, daily trading and revenue mix, loyalty programme impact, and the regions that deserve expansion capital, then turns them into recommendations. The goal: show where to focus expansion and whether the loyalty programme is worth more investment.</p>
-<ol class="steps">
-<li style="--i:0"><b>Overview</b><span>Financial and commercial performance</span></li>
-<li style="--i:1"><b>Loyalty Impact</b><span>Adoption, revenue and ROI</span></li>
-<li style="--i:2"><b>Revenue Mix</b><span>Daily trading and product mix</span></li>
-<li style="--i:3"><b>Strategic Focus</b><span>Ranked priorities and actions</span></li>
-</ol>
-<h3 class="mini">Headline findings</h3><ul class="finds">
-<li>London leads on revenue (£5.09M) but keeps only 7.38% as net profit, the lowest of all 12 regions.</li>
-<li>Loyalty members generate 33.19% of revenue while redemption costs are just 2.38% of total cost.</li>
-<li>Recommendation: keep the loyalty programme and measure incremental spend; shortlist regions on composite score before committing capital.</li>
-</ul>
-<ul class="chips" aria-label="Report features">
-<li>Power BI</li>
-<li>In-report user guide</li>
-<li>Ask-the-report assistant</li>
-<li>Custom chip slicers</li>
-</ul>
-<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiYjNiNDlhOGUtZTZjNS00NTcwLTllODEtNjY1MDEwOTU1MjU3IiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
-<p class="fine">Opens the interactive Power BI report in a new tab.</p>
-</div>
+<header class="p-head"><div class="p-top">
+<p class="eyebrow"><span class="dot"></span>Project 3 <span class="sep">/</span> UK retail · 60 stores · 2023–2024</p></div>
+<h2 id="sunrise-h">Sunrise Coffee Chain Analytics</h2>
+<p class="q"><span class="q-l">The business question</span>Where should a 60-store UK coffee chain prioritise expansion investment, and does its loyalty programme earn enough to justify continued investment?</p>
+<div class="p-cta"><a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiYjNiNDlhOGUtZTZjNS00NTcwLTllODEtNjY1MDEwOTU1MjU3IiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a><span class="fine">Opens in a new tab. No sign-in needed.</span></div>
+</header>
+<div class="p-grid"><div class="p-copy">
+<h3 class="mini">About the report</h3>
+<p class="brief">A multi-page Power BI report that evaluates store financial performance, daily trading patterns, revenue mix, loyalty programme adoption and ROI, and regional expansion priorities. A composite regional score supports capital allocation decisions.</p>
+<h3 class="mini">What each page answers</h3><ol class="steps">
+<li><b>Overview</b><span>Revenue, profit, margin and footfall by region, location and store format</span></li>
+<li><b>Loyalty Impact</b><span>Adoption, loyalty revenue and ROI against each store&#x27;s revenue contribution</span></li>
+<li><b>Revenue Mix</b><span>Daily trading, UK holidays and product category contribution</span></li>
+<li><b>Strategic Focus</b><span>Ranked expansion priorities, the loyalty decision and management actions</span></li>
+</ol></div>
 <div class="viewer" data-viewer="sunrise">
 <div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">Sunrise Coffee Chain Analytics</span></div>
 <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="sun-1.webp" alt="Sunrise Coffee Chain Analytics report page: Overview" width="1600" height="889" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
@@ -293,161 +582,67 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
 <button type="button" role="tab" aria-selected="false" data-img="sun-2.webp" data-label="Loyalty Impact" data-cap="Adoption rate against revenue contribution, by region, location and format." data-alt="Sunrise Coffee Chain Analytics report page: Loyalty Impact"><img src="sun-2.webp" alt="" width="1600" height="889" loading="lazy" decoding="async"><span>Loyalty Impact</span></button>
 <button type="button" role="tab" aria-selected="false" data-img="sun-3.webp" data-label="Revenue Mix" data-cap="Holiday and weekday trading with product category contribution." data-alt="Sunrise Coffee Chain Analytics report page: Revenue Mix"><img src="sun-3.webp" alt="" width="1600" height="889" loading="lazy" decoding="async"><span>Revenue Mix</span></button>
 <button type="button" role="tab" aria-selected="false" data-img="sun-4.webp" data-label="Strategic Focus" data-cap="Expansion priority scoring and the loyalty decision, with management actions." data-alt="Sunrise Coffee Chain Analytics report page: Strategic Focus"><img src="sun-4.webp" alt="" width="1600" height="889" loading="lazy" decoding="async"><span>Strategic Focus</span></button>
-</div></div>
-</div>
+</div></div></div>
 <div class="tiles">
-<div class="tile"><div class="num" data-to="44.70" data-dec="2" data-pre="£" data-suf="M">£44.70M</div><div class="lab">Total revenue, 2024</div><div class="note">−0.62% vs 2023</div></div>
+<div class="tile"><div class="num" data-to="44.70" data-dec="2" data-pre="£" data-suf="M">£44.70M</div><div class="lab">Total revenue, 2024</div><div class="note">−0.62% vs 2023; margin 18.80%</div></div>
 <div class="tile"><div class="num" data-to="33.26" data-dec="2" data-pre="" data-suf="%">33.26%</div><div class="lab">Average loyalty adoption</div><div class="note">Highest at transport hubs, 45.75%</div></div>
 <div class="tile"><div class="num" data-to="17.21" data-dec="2" data-pre="£" data-suf="">£17.21</div><div class="lab">Loyalty revenue per £1 of cost</div><div class="note">ROI of 1,620.62%</div></div>
 <div class="tile"><div class="num" data-to="71.60" data-dec="2" data-pre="" data-suf="">71.60</div><div class="lab">Top expansion score</div><div class="note">East of England; Wales 66.35</div></div>
 </div>
-</div></section>
-<section class="project ai" id="workforce" aria-labelledby="workforce-h">
-<div class="wrap">
-<header class="p-head"><p class="eyebrow"><span class="dot"></span>Project 2 <span class="sep">/</span> Global labour market · 2021–2024</p>
-<h2 id="workforce-h">AI Workforce Transformation</h2></header>
-<div class="p-grid">
-<div class="p-copy">
-<p class="brief">A story of how AI adoption accelerated and reshaped the workforce across countries, industries and skills. Each page answers the next executive question, and the final page turns the evidence into an action plan that adapts to the selected sector, industry or skill.</p>
-<ol class="steps">
-<li style="--i:0"><b>Overview</b><span>Scale and pace of change</span></li>
-<li style="--i:1"><b>Drivers</b><span>Automation exposure by industry and skill</span></li>
-<li style="--i:2"><b>Impact</b><span>Net jobs, wages, reskilling</span></li>
-<li style="--i:3"><b>Action</b><span>Recommendation that adapts to the selection</span></li>
-</ol>
-<h3 class="mini">Headline findings</h3><ul class="finds">
-<li>Manual Skilled Trades is the most exposed skill (replaceability score 79.60) and the largest net loser at −60.5K jobs.</li>
-<li>Seven industries pair above-average automation susceptibility with above-average adoption, and they account for 25.9% of job displacement.</li>
-<li>Recommendation: prioritise redeployment, internal mobility and strategic reskilling before expanding AI automation.</li>
+<div class="detail"><div class="d-left"><h3 class="mini">Key findings</h3><ul class="finds">
+<li>London generated the highest regional revenue (£5.09M) but the lowest net profit margin of the 12 regions, at 7.38%.</li>
+<li>Rent was the real determinant of profitability.</li>
+<li>Loyalty members contribute 33.19% of total revenue, while redemption costs are only 2.38% of total costs. For every £1 spent on loyalty, £17.21 of revenue is generated.</li>
+<li>Adoption is highest at transport hubs (45.75%) against 32.83% on the high street, and 32 of 60 stores are above average on both adoption and revenue contribution.</li>
+<li>Espresso drinks lead the product mix at 45.6% of revenue, and Thursday, Monday and Wednesday are the strongest weekdays with 46.5% of revenue between them.</li>
 </ul>
-<ul class="chips" aria-label="Report features">
-<li>Power BI</li>
-<li>Dynamic narratives</li>
-<li>Parameter-driven views</li>
-<li>Adaptive action plan</li>
+<div class="callout"><h3 class="mini">Business implications</h3><p>Recommended keeping the loyalty programme while monitoring incremental customer spending to establish its true return. Recommended shortlisting expansion regions with a composite performance score rather than relying on revenue alone.</p></div></div>
+<div class="d-right">
+<div class="panel"><div class="panel-h">
+<h3>Expansion priority score by region</h3><span>composite score, 2024</span></div>
+<ul class="bars">
+<li class="first"><span class="b-l">East of England<small>Top score</small></span><span class="b-t"><i style="--w:100.0%"></i></span><b>71.60</b></li>
+<li><span class="b-l">Wales</span><span class="b-t"><i style="--w:92.7%"></i></span><b>66.35</b></li>
+<li><span class="b-l">East Midlands</span><span class="b-t"><i style="--w:85.3%"></i></span><b>61.04</b></li>
+<li><span class="b-l">Yorkshire and The Humber</span><span class="b-t"><i style="--w:83.1%"></i></span><b>59.52</b></li>
+<li><span class="b-l">Northern Ireland</span><span class="b-t"><i style="--w:81.4%"></i></span><b>58.26</b></li>
+<li><span class="b-l">South East</span><span class="b-t"><i style="--w:76.5%"></i></span><b>54.77</b></li>
+<li><span class="b-l">Scotland</span><span class="b-t"><i style="--w:64.6%"></i></span><b>46.24</b></li>
+<li><span class="b-l">North East</span><span class="b-t"><i style="--w:58.4%"></i></span><b>41.82</b></li>
+<li><span class="b-l">South West</span><span class="b-t"><i style="--w:57.2%"></i></span><b>40.98</b></li>
+<li><span class="b-l">North West</span><span class="b-t"><i style="--w:52.3%"></i></span><b>37.47</b></li>
+<li><span class="b-l">London<small>Highest revenue, 7.38% margin</small></span><span class="b-t"><i style="--w:46.5%"></i></span><b>33.30</b></li>
+<li><span class="b-l">West Midlands<small>Lowest score</small></span><span class="b-t"><i style="--w:44.7%"></i></span><b>32.00</b></li>
 </ul>
-<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiODMzOTZmN2EtMWY0OS00ODQzLTkzNTQtMTFlMjQzYjAyMjNlIiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
-<p class="fine">Opens the interactive Power BI report in a new tab.</p>
+<p class="panel-n">The score combines revenue, net profit, profit margin, cost, revenue per sq ft and daily footfall.</p>
 </div>
-<div class="viewer" data-viewer="workforce">
-<div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">AI Workforce Transformation</span></div>
-<button class="shot" type="button" aria-label="Enlarge screenshot"><img src="ai-1.webp" alt="AI Workforce Transformation report page: Overview · Workforce Trends" width="1600" height="900" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
-<p class="cap" aria-live="polite"><b>Overview · Workforce Trends.</b> AI adoption over time, with leading regions, sectors, countries and skills.</p>
-<div class="tabs" role="tablist" aria-label="Report pages">
-<button type="button" role="tab" aria-selected="true" data-img="ai-1.webp" data-label="Overview · Workforce Trends" data-cap="AI adoption over time, with leading regions, sectors, countries and skills." data-alt="AI Workforce Transformation report page: Overview · Workforce Trends"><img src="ai-1.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Overview · Workforce Trends</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="ai-2.webp" data-label="Overview · Workforce Transition" data-cap="Job creation against displacement by quarter, region, sector, country and skill." data-alt="AI Workforce Transformation report page: Overview · Workforce Transition"><img src="ai-2.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Overview · Workforce Transition</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="ai-3.webp" data-label="Drivers · Industry" data-cap="Automation susceptibility against AI adoption, with an analyst summary." data-alt="AI Workforce Transformation report page: Drivers · Industry"><img src="ai-3.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Drivers · Industry</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="ai-4.webp" data-label="Drivers · Skill" data-cap="AI replaceability against adoption, showing which skills face transformation pressure." data-alt="AI Workforce Transformation report page: Drivers · Skill"><img src="ai-4.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Drivers · Skill</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="ai-5.webp" data-label="Impact and Action" data-cap="Net jobs, wage change, productivity, reskilling and the executive action plan." data-alt="AI Workforce Transformation report page: Impact and Action"><img src="ai-5.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Impact and Action</span></button>
 </div></div>
-</div>
-<div class="tiles">
-<div class="tile"><div class="num" data-to="586.79" data-dec="2" data-pre="" data-suf="K">586.79K</div><div class="lab">Jobs displaced</div><div class="note">vs 296.36K jobs created</div></div>
-<div class="tile"><div class="num" data-to="30.65" data-dec="2" data-pre="" data-suf="%">30.65%</div><div class="lab">AI adoption</div><div class="note">Up 15.5 pts in the GenAI era</div></div>
-<div class="tile"><div class="num" data-to="290.43" data-dec="2" data-pre="−" data-suf="K">−290.43K</div><div class="lab">Net jobs</div><div class="note">Displacement is 2.0× creation</div></div>
-<div class="tile"><div class="num" data-to="61.65" data-dec="2" data-pre="$" data-suf="M">$61.65M</div><div class="lab">Reskilling investment</div><div class="note">Exceeds workforce requirements</div></div>
-</div>
-</div></section>
-<section class="project wal" id="wallet" aria-labelledby="wallet-h">
-<div class="wrap">
-<header class="p-head"><p class="eyebrow"><span class="dot"></span>Project 3 <span class="sep">/</span> Fintech · Kenya, Ghana, Nigeria, South Africa · 2024</p>
-<h2 id="wallet-h">African Gig Economy and Digital Wallet Risk</h2></header>
-<div class="p-grid">
-<div class="p-copy">
-<p class="brief">Built around one executive decision: where is risk concentrated, why is it happening, and where should intervention come first. A weighted Vulnerability Index (fraud rate, fraud loss, dispute rate, reversal rate) ranks markets, channels and behavioural segments, and each priority is linked to an action and an expected outcome.</p>
-<ol class="steps">
-<li style="--i:0"><b>Performance</b><span>Value, success, fraud, disputes</span></li>
-<li style="--i:1"><b>Risk concentration</b><span>Vulnerability Index by entity</span></li>
-<li style="--i:2"><b>Drivers</b><span>Processing time and velocity score</span></li>
-<li style="--i:3"><b>Intervention</b><span>Action and expected outcome</span></li>
-</ol>
-<h3 class="mini">Headline findings</h3><ul class="finds">
-<li>Ghana leads transaction value (25.5%), but Kenya tops the market vulnerability ranking at 77.77, so it is the first priority.</li>
-<li>Agent and POS carry 50.0% of transaction value, while the API/third-party channel scores 76.84 on vulnerability.</li>
-<li>Unverified Tier 0 users, the web channel and bank-transfer wallet funding are rated Critical, with scores between 83.5 and 85.0.</li>
+<div class="explore"><div class="ex-l"><h3>How to explore the live report</h3><ol class="how">
+<li>Use the page tabs at the top. Intro explains the report, then Overview, Loyalty Impact, Revenue Mix and Strategic Focus follow.</li>
+<li>Click a KPI card to change what the charts on that page show.</li>
+<li>On Strategic Focus, switch between Expansion Assessment and Loyalty Assessment, then between Region and Store, and pick a year.</li>
+<li>Use the AI icon in the toolbar to ask the report a question.</li>
+</ol></div><div class="ex-r"><h3 class="mini">Report features</h3><ul class="chips" aria-label="Report features"><li>Power BI</li>
+<li>In-report user guide</li>
+<li>Ask-the-report assistant</li>
+<li>Custom chip slicers</li>
+<li>Composite regional scoring</li>
 </ul>
-<ul class="chips" aria-label="Report features">
-<li>Power BI</li>
-<li>Vulnerability Index</li>
-<li>Parameter-driven ranking</li>
-<li>Intervention plan</li>
-</ul>
-<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiZjA1ZjdiMmUtZjlkMC00YjBkLTg0OTctMzRlZjUxODQ0NWRjIiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
-<p class="fine">Opens the interactive Power BI report in a new tab.</p>
-</div>
-<div class="viewer" data-viewer="wallet">
-<div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">African Gig Economy and Digital Wallet Risk</span></div>
-<button class="shot" type="button" aria-label="Enlarge screenshot"><img src="wal-1.webp" alt="African Gig Economy and Digital Wallet Risk report page: Platform Performance Overview" width="1600" height="900" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
-<p class="cap" aria-live="polite"><b>Platform Performance Overview.</b> KPI cards, value trend, top market and channel, with the priority areas called out.</p>
-<div class="tabs" role="tablist" aria-label="Report pages">
-<button type="button" role="tab" aria-selected="true" data-img="wal-1.webp" data-label="Platform Performance Overview" data-cap="KPI cards, value trend, top market and channel, with the priority areas called out." data-alt="African Gig Economy and Digital Wallet Risk report page: Platform Performance Overview"><img src="wal-1.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Platform Performance Overview</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="wal-2.webp" data-label="Drivers · Transaction" data-cap="Processing time and success rate by market, channel and transaction type." data-alt="African Gig Economy and Digital Wallet Risk report page: Drivers · Transaction"><img src="wal-2.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Drivers · Transaction</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="wal-3.webp" data-label="Drivers · Risk" data-cap="Velocity score and fraud rate across channel, KYC tier, tenure and gig segment." data-alt="African Gig Economy and Digital Wallet Risk report page: Drivers · Risk"><img src="wal-3.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Drivers · Risk</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="wal-4.webp" data-label="Strategic Intervention Plan" data-cap="Vulnerability-ranked priorities with recommended actions and expected outcomes." data-alt="African Gig Economy and Digital Wallet Risk report page: Strategic Intervention Plan"><img src="wal-4.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Strategic Intervention Plan</span></button>
+<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiYjNiNDlhOGUtZTZjNS00NTcwLTllODEtNjY1MDEwOTU1MjU3IiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
+<p class="fine">Opens the interactive report in a new tab. Built for a data analytics challenge on a sample dataset.</p>
 </div></div>
-</div>
-<div class="tiles">
-<div class="tile"><div class="num" data-to="12.53" data-dec="2" data-pre="$" data-suf="M">$12.53M</div><div class="lab">Transaction value</div><div class="note">+0.75% vs 2023</div></div>
-<div class="tile"><div class="num" data-to="6.33" data-dec="2" data-pre="$" data-suf="M">$6.33M</div><div class="lab">Fraud loss value</div><div class="note">+1.53% vs 2023</div></div>
-<div class="tile"><div class="num" data-to="50.43" data-dec="2" data-pre="" data-suf="%">50.43%</div><div class="lab">Fraud rate</div><div class="note">+0.56 pp vs 2023</div></div>
-<div class="tile"><div class="num" data-to="83.51" data-dec="2" data-pre="" data-suf="">83.51</div><div class="lab">KYC Tier 0 vulnerability</div><div class="note">Critical priority</div></div>
-</div>
-</div></section>
-<section class="project b2b" id="b2b" aria-labelledby="b2b-h">
-<div class="wrap">
-<header class="p-head"><p class="eyebrow"><span class="dot"></span>Project 4 <span class="sep">/</span> Enterprise sales · 2025</p>
-<h2 id="b2b-h">B2B Sales Performance Analysis</h2></header>
-<div class="p-grid">
-<div class="p-copy">
-<p class="brief">A decision-ready view of sales performance for stakeholders who monitor results, compare actuals with targets, find profitable products and customer segments, and understand what sits behind changes in revenue, margin and returns. It follows one path: Performance, Target, Contribution, Drivers, Evidence, Attention.</p>
-<ol class="steps">
-<li style="--i:0"><b>Performance</b><span>Sales, profit, margin, target</span></li>
-<li style="--i:1"><b>Contribution</b><span>Products and customers</span></li>
-<li style="--i:2"><b>Drivers</b><span>Teams, channels, promotions</span></li>
-<li style="--i:3"><b>Attention</b><span>Where to look first</span></li>
-</ol>
-<h3 class="mini">Headline findings</h3><ul class="finds">
-<li>Sales grew 14.13% to $6.72M, yet only 3 of 12 months beat target. North America carries the largest gap at −$261.17K.</li>
-<li>Gross margin slipped 1.92 pp to 46.14% despite growth, and 6 products combine above-average returns with below-average margin.</li>
-<li>Power User Training is the top product at $1.37M, up 127.76% year on year.</li>
-</ul>
-<ul class="chips" aria-label="Report features">
-<li>Power BI</li>
-<li>Dynamic KPI narratives</li>
-<li>Quadrant analysis</li>
-<li>Promotions and events</li>
-</ul>
-<a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiMzBmNWVmNWQtZjNjNy00NWVjLTg4ODUtMDlkYWI0ZDBjZDA1IiwidCI6IjgwNzU3NTM5LTEzYWEtNDc3Zi04MTQxLTMzMzUxZmNhYjJiZCJ9" target="_blank" rel="noopener">Open the live report <span aria-hidden="true">↗</span></a>
-<p class="fine">Opens the interactive Power BI report in a new tab.</p>
-</div>
-<div class="viewer" data-viewer="b2b">
-<div class="frame"><div class="bar"><i></i><i></i><i></i><span class="url">B2B Sales Performance Analysis</span></div>
-<button class="shot" type="button" aria-label="Enlarge screenshot"><img src="b2b-1.webp" alt="B2B Sales Performance Analysis report page: Executive Overview · Performance" width="1600" height="900" loading="lazy" decoding="async"><span class="zoom" aria-hidden="true">Click to enlarge</span></button></div>
-<p class="cap" aria-live="polite"><b>Executive Overview · Performance.</b> KPIs, trend and the top products, industries, regions and provinces.</p>
-<div class="tabs" role="tablist" aria-label="Report pages">
-<button type="button" role="tab" aria-selected="true" data-img="b2b-1.webp" data-label="Executive Overview · Performance" data-cap="KPIs, trend and the top products, industries, regions and provinces." data-alt="B2B Sales Performance Analysis report page: Executive Overview · Performance"><img src="b2b-1.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Executive Overview · Performance</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="b2b-2.webp" data-label="Executive Overview · Target" data-cap="Sales against target by month and the variance by geography." data-alt="B2B Sales Performance Analysis report page: Executive Overview · Target"><img src="b2b-2.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Executive Overview · Target</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="b2b-3.webp" data-label="Commercial Drivers · Products" data-cap="Category mix and a return-rate versus margin quadrant for products." data-alt="B2B Sales Performance Analysis report page: Commercial Drivers · Products"><img src="b2b-3.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Commercial Drivers · Products</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="b2b-4.webp" data-label="Commercial Drivers · Customers" data-cap="Segment and tier mix with the same quadrant applied to industries." data-alt="B2B Sales Performance Analysis report page: Commercial Drivers · Customers"><img src="b2b-4.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Commercial Drivers · Customers</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="b2b-5.webp" data-label="Sales Execution · Team and Channel" data-cap="Team, channel and salesperson profitability." data-alt="B2B Sales Performance Analysis report page: Sales Execution · Team and Channel"><img src="b2b-5.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Sales Execution · Team and Channel</span></button>
-<button type="button" role="tab" aria-selected="false" data-img="b2b-6.webp" data-label="Sales Execution · Promotions and Events" data-cap="Promotion types, business events and discount impact on sales." data-alt="B2B Sales Performance Analysis report page: Sales Execution · Promotions and Events"><img src="b2b-6.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"><span>Sales Execution · Promotions and Events</span></button>
-</div></div>
-</div>
-<div class="tiles">
-<div class="tile"><div class="num" data-to="6.72" data-dec="2" data-pre="$" data-suf="M">$6.72M</div><div class="lab">Sales amount</div><div class="note">+14.13% vs last year</div></div>
-<div class="tile"><div class="num" data-to="93.27" data-dec="2" data-pre="" data-suf="%">93.27%</div><div class="lab">Target achievement</div><div class="note">Near target</div></div>
-<div class="tile"><div class="num" data-to="3" data-dec="0" data-pre="" data-suf=" of 12">3 of 12</div><div class="lab">Months above sales target</div><div class="note">Shortfall of $485.03K</div></div>
-<div class="tile"><div class="num" data-to="9.51" data-dec="2" data-pre="" data-suf="%">9.51%</div><div class="lab">Return rate</div><div class="note">Up from 4.89%</div></div>
-</div>
 </div></section>
 
 <section class="sec"><div class="wrap">
   <div class="sec-h"><h2>How I work</h2><p>What stays the same from report to report.</p></div>
   <div class="kit">
-    <div><h3>Start from the decision</h3><p>Each report opens with the executive question it must answer, and every page moves one step closer to an action.</p></div>
-    <div><h3>Model for the story</h3><p>Power BI and DAX measures built to compare against last year and target, with narratives that update as filters change.</p></div>
-    <div><h3>Design for first-time users</h3><p>Clear KPI cards, parameter switches, guided tours and consistent page layouts so a new viewer is productive in a minute.</p></div>
+    <div><h3>Start from the decision</h3><p>Each report opens with the question a leader has to answer, and every page moves one step closer to an action.</p></div>
+    <div><h3>Model for the story</h3><p>DAX measures that compare against last year, target or a scoring model, with narratives that update as filters change.</p></div>
+    <div><h3>Design for first-time users</h3><p>Clear KPI cards, switchable metrics, guided tours, methodology pages and an insight agent, so a new viewer is productive in a minute.</p></div>
   </div>
+  <ul class="tools" aria-label="Toolkit">
+    <li>Power BI</li><li>DAX</li><li>Data modelling</li><li>ZoomCharts</li><li>HTML and CSS in DAX</li><li>What-if parameters</li><li>Custom visuals</li><li>Dashboard UX design</li>
+  </ul>
 </div></section>
 
 <section class="contact" id="contact"><div class="wrap">
@@ -460,7 +655,7 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
   </div>
 </div></section>
 </main>
-<footer><div class="wrap">Brian Sule · Figures shown come from each report's own dataset.</div></footer>
+<footer><div class="wrap">Brian Sule · Each report was built for a data challenge on a sample dataset. Figures come from each report's own data.</div></footer>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Screenshot viewer">
   <div class="lb-top"><span id="lb-t"></span><button type="button" id="lb-p">← Prev</button><button type="button" id="lb-n">Next →</button><button type="button" id="lb-x">Close</button></div>
@@ -525,6 +720,22 @@ footer{padding-block:28px 40px;color:var(--mute);font:400 12px var(--f-mono);bor
       n.dataset.to = n.dataset.count; n.dataset.dec = '0';
       if(!inView(n)) n.textContent = '0';
       io.observe(n);
+    });
+  }
+
+  /* evidence bars grow when they scroll into view */
+  if ('IntersectionObserver' in window && !reduce){
+    var bio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          bio.unobserve(e.target);
+          $$('i', e.target).forEach(function(f,k){ f.style.transitionDelay = (k*60)+'ms'; f.style.transform = 'scaleX(1)'; });
+        }
+      });
+    },{threshold:.25});
+    $$('.bars').forEach(function(b){
+      if(!inView(b)) $$('i', b).forEach(function(f){ f.style.transform = 'scaleX(0)'; });
+      bio.observe(b);
     });
   }
 
